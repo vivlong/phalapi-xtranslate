@@ -28,12 +28,12 @@ class Aliyun
 		try {
 			$result = AlibabaCloud::alimt()
 				->v20181012()
-				->translateGeneral()			//通用版本
-				->method('POST')            	//设置请求POST
-				->withSourceLanguage($from) 	//原文语言
+				->translateGeneral()						//通用版本
+				->method('POST')            		//设置请求POST
+				->withSourceLanguage($from) 		//原文语言
 				->withSourceText($sourceText)   //原文
 				->withFormatType($formatType) 	//翻译文本的格式，html（ 网页格式。设置此参数将对待翻译文本以及翻译后文本按照html格式进行处理）、text（文本格式。设置此参数将对传入待翻译文本以及翻译后结果不做文本格式处理，统一按纯文本格式处理。
-				->withTargetLanguage($to) 		//目标语言
+				->withTargetLanguage($to) 			//目标语言
 				->request();
 			if($result->isSuccess()) {
 				return $result->toArray();
@@ -53,13 +53,13 @@ class Aliyun
 		try {
 			$result = AlibabaCloud::alimt()
 				->v20181012()
-				->translateECommerce() 			//电商版本
-				->method('POST')            	//设置请求POST
-				->withSourceLanguage($from) 	//原文语言
-				->withScene($scene)      		//设置场景，商品标题:title，商品描述:description，商品沟通:communication
+				->translateECommerce() 					//电商版本
+				->method('POST')            		//设置请求POST
+				->withSourceLanguage($from) 		//原文语言
+				->withScene($scene)      				//设置场景，商品标题:title，商品描述:description，商品沟通:communication
 				->withSourceText($sourceText)   //原文
 				->withFormatType($formatType) 	//翻译文本的格式，html（ 网页格式。设置此参数将对待翻译文本以及翻译后文本按照html格式进行处理）、text（文本格式。设置此参数将对传入待翻译文本以及翻译后结果不做文本格式处理，统一按纯文本格式处理。
-				->withTargetLanguage($to) 		//目标语言
+				->withTargetLanguage($to) 			//目标语言
 				->request();
 			if($result->isSuccess()) {
 				return $result->toArray();
