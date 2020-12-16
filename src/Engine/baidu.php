@@ -26,7 +26,7 @@ class Baidu
             $sign = $this->buildSign($query, $appid, $salt, $this->config['app_key']);
             $params = 'q='.urlencode($query).'&from='.$from.'&to='.$to.'&appid='.$appid.'&salt='.$salt.'&sign='.$sign;
             $url = 'http://api.fanyi.baidu.com/api/trans/vip/translate?'.$params;
-            $di->logger->info(__NAMESPACE__.DIRECTORY_SEPARATOR.__CLASS__.DIRECTORY_SEPARATOR.__FUNCTION__, ['urlParams' => $data]);
+            $di->logger->info(__NAMESPACE__.DIRECTORY_SEPARATOR.__CLASS__.DIRECTORY_SEPARATOR.__FUNCTION__, ['urlParams' => $params]);
             $curl = new \PhalApi\CUrl(1);
             $rs = $curl->get($url, 3000);
             $di->logger->info(__NAMESPACE__.DIRECTORY_SEPARATOR.__CLASS__.DIRECTORY_SEPARATOR.__FUNCTION__, ['rs' => $rs]);
