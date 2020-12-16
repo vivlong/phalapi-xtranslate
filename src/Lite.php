@@ -2,8 +2,8 @@
 
 namespace PhalApi\Xtranslate;
 
-class Lite {
-
+class Lite
+{
     /**
      * 实例.
      *
@@ -28,9 +28,9 @@ class Lite {
     public function __call($method, $arguments)
     {
         if (method_exists($this, $method)) {
-            return call_user_func_array(array(&$this, $method), $arguments);
+            return call_user_func_array([&$this, $method], $arguments);
         } elseif (!empty($this->translater) && $this->translater && method_exists($this->translater, $method)) {
-            return call_user_func_array(array(&$this->translater, $method), $arguments);
+            return call_user_func_array([&$this->translater, $method], $arguments);
         }
     }
 
@@ -44,20 +44,22 @@ class Lite {
     {
         $di = \PhalApi\DI();
         $this->engine = strtolower($engine);
-        $this->config = array();
+        $this->config = [];
         $config = $di->config->get('app.Xtranslate.'.$this->engine);
         if (!$config) {
-            $di->logger->log('Xtranslate', 'No engine config', $this->engine);
+            $di->logger->info(__NAMESPACE__.DIRECTORY_SEPARATOR.__CLASS__.DIRECTORY_SEPARATOR.__FUNCTION__, ['No engine config' => $this->engine]);
+
             return false;
         }
         $this->config = array_merge($this->config, $config);
         $engine = '\\PhalApi\\Xtranslate\\Engine\\'.ucfirst(strtolower($this->engine));
         $this->translater = new $engine($this->config);
         if (!$this->translater) {
-            $di->logger->log('Xtranslate', 'No engine class', $engine);
+            $di->logger->info(__NAMESPACE__.DIRECTORY_SEPARATOR.__CLASS__.DIRECTORY_SEPARATOR.__FUNCTION__, ['No engine class' => $this->engine]);
+
             return false;
         }
+
         return true;
     }
 }
-
