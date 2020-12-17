@@ -1,26 +1,26 @@
 {
-    "name": "vivlong/phalapi-xtranslate",
-    "description": "PhalApi 2.x扩展类库，第三方翻译接口扩展。",
-    "type": "library",
-    "keywords": [
-        "phalapi", "phalapi-xtranslate", "xtranslate"
-    ],
-    "license": "GPL-3.0+",
-    "homepage": "https://www.phalapi.net/",
-    "authors": [
-        {
-            "name": "JamesLiao",
-            "email": "vivlonglz@gmail.com",
-            "homepage": "https://github.com/vivlong",
-            "role": "Developer"
-        }
-    ],
+	"name": "vivlong/phalapi-xtranslate",
+	"description": "PhalApi 2.x扩展类库，第三方翻译接口扩展。",
+	"type": "library",
+	"keywords": [
+		"phalapi", "phalapi-xtranslate", "xtranslate"
+	],
+	"license": "MulanPSL-2.0",
+	"minimum-stability": "stable",
+	"homepage": "https://www.phalapi.net/",
+	"authors": [{
+		"name": "JamesLiao",
+		"email": "vivlonglz@gmail.com",
+		"homepage": "http://vivlong.github.io",
+		"role": "Developer"
+	}],
 	"require": {
-		"alibabacloud/sdk": "^1.5"
+		"php": ">=7.0.0",
+		"alibabacloud/sdk": "^1.8"
 	},
-    "autoload": {
-        "psr-4": {
-            "PhalApi\\Xtranslate\\": "src"
-        }
-    }
+	"autoload": {
+		"psr-4": {
+			"PhalApi\\Xtranslate\\": "src"
+		}
+	}
 }
